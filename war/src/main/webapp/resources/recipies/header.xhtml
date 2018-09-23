@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+<composite:implementation>
+  <f:event type="preRenderView" listener="#{userBean.checkLogged}"/>
+  <section class="hero is-info is-medium">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <i class="is-128x128 fas fa-utensils"></i>
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          </div>
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item is-active">
+                <i class="fas fa-home"></i>
+                Home
+              </a>
+              <a class="navbar-item">
+                <i class="fas fa-user"></i>
+                Profile
+              </a>
+              <span class="navbar-item">
+              <a class="button is-danger is-inverted">
+                <span class="icon">
+                  <i class="fas fa-sign-in-alt"></i>
+                </span>
+                <span>Log out</span>
+              </a>
+            </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          Java Recipes
+        </h1>
+        <h2 class="subtitle">
+          Easy recipes for everyone
+        </h2>
+      </div>
+    </div>
+  </section>
+</composite:implementation>
+
+</html>

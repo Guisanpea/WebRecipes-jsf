@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:recipes="http://xmlns.jcp.org/jsf/composite/recipies">
+<h:head>
+    <title>Recipes</title>
+    <h:outputStylesheet library="css" name="bulma.css"/>
+</h:head>
+<h:body>
+    <recipes:header/>
+    <div class="container">
+        <h1 class="title">Recipes</h1>
+        <ui:repeat value="#{recipesBean.recipeList}" var="recipe">
+            <div class="box">
+                <h1 class="title">#{recipe.name}</h1>
+                <h2 class="subtitle">#{recipesBean.formatCategories(recipe.categoryList) - recipe.levelId.name}</h2>
+
+                <p>#{recipesBean.resume()}</p>
+            </div>
+        </ui:repeat>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:a="http://xmlns.jcp.org/jsf/passthrough">>
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Register</title>
+    <h:outputStylesheet library="css" name="font-awesome.css"/>
+    <h:outputStylesheet library="css" name="bulma.css"/>
+    <h:outputStylesheet library="css" name="login.css"/>
+    <h:outputStylesheet library="css" name="open-sans.css"/>
+</h:head>
+<h:body>
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-grey">Register</h3>
+                    <p class="subtitle has-text-grey">Please register to proceed.</p>
+                    <div class="box">
+                        <figure class="avatar">
+                            <h:graphicImage library="images" name="user_icon.png"/>
+                        </figure>
+                        <h:form>
+                            <div class="field">
+                                <div class="control">
+                                    <h:inputText styleClass="input is-large" a:placeholder="Your username"
+                                                 value="#{userBean.user.name}"/>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <h:inputSecret styleClass="input is-large" a:placeholder="Your password"
+                                                   value="#{userBean.inputPassword}"/>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <h:inputText styleClass="input is-large" a:placeholder="Your full name"
+                                                 value="#{userBean.user.fullName}"/>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="start" class="is-medium">Birth date</label>
+                                <h:inputText a:type="date" id="start" value="#{userBean.user.birthdate}">
+                                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                                </h:inputText>
+                            </div>
+                            <hr/>
+                            <h:commandButton styleClass="button is-block is-primary is-large is-fullwidth"
+                                             value="Sign up"
+                                             action="#{userBean.doRegister}"/>
+                        </h:form>
+                    </div>
+                    <!--TODO: Do ajax stuff -->
+                </div>
+            </div>
+        </div>
+    </section>
+</h:body>
+</html>

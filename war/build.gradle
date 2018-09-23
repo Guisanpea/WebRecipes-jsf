@@ -1,0 +1,12 @@
+plugins {
+    id 'war'
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
+dependencies {
+    implementation group: 'org.jasypt', name: 'jasypt', version: '1.9.2'
+    providedCompile group: 'javax', name: 'javaee-api', version: '7.0'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
+
+    compileOnly project(':ejb')
+}

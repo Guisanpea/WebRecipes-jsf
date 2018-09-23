@@ -1,0 +1,4 @@
+rootProject.name = 'recipes-jsf'
+include 'war'
+include 'ejb'
+

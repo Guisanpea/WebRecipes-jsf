@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Login</title>
+  <h:outputStylesheet library="css" name="font-awesome.css"/>
+  <h:outputStylesheet library="css" name="bulma.css"/>
+  <h:outputStylesheet library="css" name="login.css"/>
+  <h:outputStylesheet library="css" name="open-sans.css"/>
+</h:head>
+<h:body>
+  <section jsf:id="section" class="hero is-success is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="column is-4 is-offset-4">
+          <h3 class="title has-text-grey"/>
+          <p class="subtitle has-text-grey">Please login to proceed.</p>
+          <div class="box">
+            <figure class="avatar">
+              <h:graphicImage library="images" name="user_icon.png"/>
+            </figure>
+            <h:form>
+              <div class="field">
+                <div class="control">
+                  <h:inputText styleClass="input is-large" a:placeholder="Your username" value="#{userBean.user.name}"/>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <h:inputSecret class="input is-large" a:placeholder="Your password" value="#{userBean.inputPassword}"/>
+                </div>
+              </div>
+              <h:commandButton styleClass="button is-block is-primary is-large is-fulldwidth" value="Log in"
+                               action="#{userBean.doLogin}"/>
+              <!--TODO: Do ajax stuff-->
+            </h:form>
+          </div>
+          <hr/>
+          <p class="has-text-grey">
+            <h:link styleClass="is-large" outcome="register" value="Sign up"/>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</h:body>
+</html>
