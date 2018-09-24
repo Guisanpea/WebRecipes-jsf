@@ -9,13 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.EntityManager;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import javax.validation.*;
 
 /**
- *
  * @author archie
  */
 public abstract class AbstractFacade<T> {
@@ -44,7 +40,12 @@ public abstract class AbstractFacade<T> {
     }
 
     public void edit(T entity) {
-        getEntityManager().merge(entity);
+        try {
+            getEntityManager().merge(entity);
+        } catch (ConstraintViolationException e) {
+            e.getConstraintViolations()
+                  .forEach(System.out::println);
+        }
     }
 
     public void remove(T entity) {
@@ -77,5 +78,5 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }

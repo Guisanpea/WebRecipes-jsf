@@ -61,7 +61,8 @@ public class UserBean implements Serializable {
               }).orElseGet(() -> {
                   user.setHashedPassword(ENCRYPTOR.encryptPassword(inputPassword));
                   userFacade.create(user);
-                  return "listRecipes";
+                  user = userFacade.findByUsername(user.getName());
+                  return "recipes";
               });
     }
 
@@ -70,5 +71,11 @@ public class UserBean implements Serializable {
             ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
             ec.redirect(ec.getRequestContextPath() + "/login.xhtml");
         }
+    }
+
+    public String logOut() {
+        user = new User();
+        userLogged = false;
+        return "login";
     }
 }

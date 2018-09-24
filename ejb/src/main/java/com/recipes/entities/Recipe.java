@@ -73,4 +73,9 @@ public class Recipe implements Serializable {
     public Recipe() {
 
     }
+
+    @PrePersist
+    protected void onCreate(){
+        createdAt = new Date();
+    }
 }

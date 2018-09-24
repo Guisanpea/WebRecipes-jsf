@@ -6,6 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+<composite:interface/>
 <composite:implementation>
   <f:event type="preRenderView" listener="#{userBean.checkLogged}"/>
   <section class="hero is-info is-medium">
@@ -14,32 +15,27 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item">
-              <i class="is-128x128 fas fa-utensils"></i>
+              <i class="is-128x128 fas fa-utensils"/>
             </a>
             <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span/>
+            <span/>
+            <span/>
           </span>
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
-                <i class="fas fa-home"></i>
-                Home
-              </a>
-              <a class="navbar-item">
-                <i class="fas fa-user"></i>
-                Profile
-              </a>
-              <span class="navbar-item">
-              <a class="button is-danger is-inverted">
-                <span class="icon">
-                  <i class="fas fa-sign-in-alt"></i>
-                </span>
-                <span>Log out</span>
-              </a>
-            </span>
+              <div class="navbar-item">
+                <h:link value="recipes" outcome="recipes"/>
+              </div>
+              <div class="navbar-item">
+                <h:link value="create recipe" outcome="createRecipe"/>
+              </div>
+              <div class="navbar-item button has-background-danger is-inverted">
+                <h:form>
+                  <h:commandLink action="#{userBean.logOut}" value="Log out"/>
+                </h:form>
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:recipes="http://xmlns.jcp.org/jsf/composite/recipies"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <title>Recipe</title>
+  <h:outputStylesheet library="css" name="bulma.css"/>
+  <h:outputStylesheet library="css" name="recipe.css"/>
+</h:head>
+<h:body>
+  <recipes:header/>
+  <div class="container">
+    <section class="articles">
+      <div class="column is-8 is-offset-2">
+        <div class="card article">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content has-text-centered">
+                <p class="title article-title">#{recipesBean.toShow.name}</p>
+                <div class="tags has-addons level-item">
+                  <span class="tag is-rounded is-info">#{recipesBean.toShow.userId.name}</span>
+                  <span class="tag is-rounded">#{recipesBean.toShow.createdAt}</span>
+                </div>
+              </div>
+            </div>
+            <div class="content article-body">
+              <p>#{recipesBean.toShow.description}</p>
+              <p>#{recipesBean.toShow.preparation}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</h:body>
+</html>

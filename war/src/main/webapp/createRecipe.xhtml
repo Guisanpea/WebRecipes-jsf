@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:recipes="http://xmlns.jcp.org/jsf/composite/recipies"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <title>Create recipe</title>
+  <h:outputStylesheet library="css" name="bulma.css"/>
+</h:head>
+<h:body>
+  <recipes:header/>
+  <h:form>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Recipe Name</label>
+      </div>
+      <div class="field-body">
+        <div class="control">
+          <h:inputText a:placeholder="e.g. Currywurst" value="#{recipesBean.toCreate.name}"/>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Description</label>
+      </div>
+      <div class="field-body is-small">
+        <div class="field">
+          <div class="control">
+            <h:inputTextarea class="textarea is-small"
+                             a:placeholder="e.g. Fast food dish of German origin consisting of steamed, then fried pork sausage"
+                             value="#{recipesBean.toCreate.description}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Recipe Preparation</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <h:inputTextarea styleClass="textarea"
+                             value="#{recipesBean.toCreate.preparation}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h:commandButton styleClass="is-success" value="Submit" action="#{recipesBean.createRecipe}"/>
+  </h:form>
+</h:body>
+</html>

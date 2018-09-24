@@ -9,6 +9,7 @@
 <h:head>
     <title>Recipes</title>
     <h:outputStylesheet library="css" name="bulma.css"/>
+    <h:outputStylesheet library="css" name="recipes.css"/>
 </h:head>
 <h:body>
     <recipes:header/>
@@ -19,8 +20,10 @@
                 <h1 class="title">#{recipe.name}</h1>
                 <h2 class="subtitle">#{recipesBean.formatCategories(recipe.categoryList) - recipe.levelId.name}</h2>
 
-                <p>#{recipesBean.resume()}</p>
+                <p>#{recipesBean.resume(recipe.description)}</p>
+                <h:commandButton styleClass="button is-primary" action="#{recipesBean.showRecipe(recipe)}"/>
             </div>
+            <!-- TODO: Add delete and edit buttons -->
         </ui:repeat>
     </div>
 </h:body>
